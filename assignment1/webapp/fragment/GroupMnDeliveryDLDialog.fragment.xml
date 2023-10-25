@@ -4,8 +4,8 @@
 >
     <SelectDialog
         id="selectDialog3"
-        title="納期管理グループ Group quản lý thời hạn giao hàng"
-        searchPlaceholder="search"
+        title="{i18n>deliveryDateManageGr}"
+        searchPlaceholder="{i18n>search}"
         items="{data>/Collection}"
         search=".onGroupMnDeliveryDLHelpSearch"
         confirm=".onGroupMnDeliveryDLHelpClose"

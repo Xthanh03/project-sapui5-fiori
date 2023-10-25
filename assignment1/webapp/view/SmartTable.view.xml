@@ -35,10 +35,9 @@
                                         <!-- Filter 購買グループ Purchase group -->
                                         <VBox class="filter1">
                                             <Label
-                                                text="購買グループ"
+                                                text="{i18n>purchaseGroup}"
                                                 required="true"
                                             />
-                                            <Label text="Purchase group" />
                                             <Input
                                                 id="EKGRP001"
                                                 class="inputFilter"
@@ -48,10 +47,9 @@
                                         <!-- Filter プラント Plant -->
                                         <VBox class="filter2">
                                             <Label
-                                                text="プラント"
+                                                text="{i18n>plant}"
                                                 required="true"
                                             />
-                                            <Label text="Plant" />
                                             <Input
                                                 id="WERKS001"
                                                 class="inputFilter"
@@ -61,10 +59,9 @@
                                         <!-- Filter 仕入先 Vendor -->
                                         <VBox class="filter3">
                                             <Label
-                                                text="仕入先"
+                                                text="{i18n>vendor}"
                                                 required="true"
                                             />
-                                            <Label text="Vendor" />
                                             <Input
                                                 id="LIFNR001"
                                                 class="inputFilter"
@@ -83,9 +80,8 @@
                                         </VBox>
                                         <!-- Filter 日程担当者 Người phụ trách schedule-->
                                         <VBox class="filter4">
-                                            <Label text="日程担当者" />
                                             <Label
-                                                text="Người phụ trách schedule"
+                                                text="{i18n>schedulePerson}"
                                             />
                                             <Input
                                                 id="ZNITTEITANTOSHA001"
@@ -105,9 +101,8 @@
                                         </VBox>
                                         <!-- Filter 納期管理グループ Group quản lý thời hạn giao hàng-->
                                         <VBox class="filter5">
-                                            <Label text="納期管理グループ" />
                                             <Label
-                                                text="Group quản lý thời hạn giao hàng"
+                                                text="{i18n>deliveryDateManageGr}"
                                             />
                                             <Input
                                                 id="ZNOKIGRP001"
@@ -127,9 +122,8 @@
                                         </VBox>
                                         <!-- Filter 納期担当者 Người phụ trách thời hạn giao hàng-->
                                         <VBox class="filter6">
-                                            <Label text="納期担当者" />
                                             <Label
-                                                text="Người phụ trách thời hạn giao hàng"
+                                                text="{i18n>deliveryDLPerson}"
                                             />
                                             <Input
                                                 id="ZNOKITANTOSHA001"
@@ -156,13 +150,13 @@
                                         <!-- Button search filter-->
                                         <Button
                                             class="sapUiSmallMarginEnd"
-                                            text="検索"
+                                            text="{i18n>search}"
                                             width="62px"
                                             press="onPressSearchFilter"
                                         />
                                         <!-- Button clear filter -->
                                         <Button
-                                            text="クリア"
+                                            text="{i18n>clearSearch}"
                                             type="Reject"
                                             press="onClearSearchFilter"
                                         />
@@ -191,7 +185,7 @@
                         <Button
                             id="AddBtn001"
                             class="sapUiSmallMarginEnd"
-                            text="追加"
+                            text="{i18n>addRow}"
                             width="62px"
                             press="onAddRowTable"
                             type="Accept"
@@ -199,7 +193,7 @@
                         <!-- Button delete row-->
                         <Button
                             id="ZDELF001"
-                            text="削除"
+                            text="{i18n>deleteRow}"
                             width="62px"
                             type="Reject"
                             press="onDeleteRowTable"
@@ -208,7 +202,6 @@
                 </t:extension>
                 <t:columns>
                     <t:Column width="4rem">
-                        <Label text="番号順" />
                         <t:template>
                             <Text
                                 id="idData"
@@ -219,7 +212,7 @@
                     <!--Khi edit thì không thể thay đổi Column 購買グループ Purchase group -->
                     <t:Column>
                         <Label
-                            text="購買グループ"
+                            text="{i18n>purchaseGroup}"
                             required="true"
                         />
                         <t:template>
@@ -233,7 +226,7 @@
                     <!--Khi edit thì không thể thay đổi Column プラント Plant -->
                     <t:Column>
                         <Label
-                            text="プラント"
+                            text="{i18n>plant}"
                             required="true"
                         />
                         <t:template>
@@ -247,7 +240,7 @@
                     <!--Khi edit thì không thể thay đổi Column 仕入先 Vendor -->
                     <t:Column>
                         <Label
-                            text="仕入先"
+                            text="{i18n>vendor}"
                             required="true"
                         />
                         <t:template>
@@ -268,7 +261,7 @@
                     </t:Column>
                     <!-- Column 仕入先 Tên Vendor -->
                     <t:Column>
-                        <Label text="仕入先名" />
+                        <Label text="{i18n>vendorName}" />
                         <t:template>
                             <Text
                                 id="NAME1001"
@@ -279,7 +272,7 @@
                     </t:Column>
                     <!-- Column 日程担当者 Người phụ trách schedule-->
                     <t:Column>
-                        <Label text="日程担当者" />
+                        <Label text="{i18n>schedulePerson}" />
                         <t:template>
                             <Input
                                 id="ZNITTEITANTOSHA002"
@@ -298,9 +291,9 @@
                             </Input>
                         </t:template>
                     </t:Column>
-                    <!-- Column  日程担当者 Tên Người phụ trách schedule-->
+                    <!-- Column 日程担当者 Tên Người phụ trách schedule-->
                     <t:Column>
-                        <Label text="日程担当者名" />
+                        <Label text="{i18n>schedulePersonName}" />
                         <t:template>
                             <Text
                                 id="ZNITTEITANTOSHANAME001"
@@ -310,7 +303,7 @@
                     </t:Column>
                     <!-- Column 納期担当者 Người phụ trách thời hạn giao hàng-->
                     <t:Column>
-                        <Label text="納期担当者" />
+                        <Label text="{i18n>deliveryDLPerson}" />
                         <t:template>
                             <Input
                                 id="ZNOKITANTOSHA002"
@@ -331,7 +324,7 @@
                     </t:Column>
                     <!-- Column 納期担当者名 Tên người phụ trách thời hạn giao hàng-->
                     <t:Column>
-                        <Label text="納期担当者名" />
+                        <Label text="{i18n>deliveryDLPersonName}" />
                         <t:template>
                             <Text
                                 id="ZNOKITANTOSHANAME001"
@@ -342,7 +335,7 @@
 
                     <!-- Coulumn 納期管理グループ Group quản lý thời hạn giao hàng-->
                     <t:Column>
-                        <Label text="納期管理グループ" />
+                        <Label text="{i18n>deliveryDateManageGr}" />
                         <t:template>
                             <Input
                                 id="ZNOKIGRP002"
@@ -378,7 +371,7 @@
                 <Button
                     id="RegBtn001"
                     width="62px"
-                    text="検索"
+                    text="{i18n>regist}"
                     type="Accept"
                     press="onRegisted"
                 />

@@ -29,20 +29,6 @@ sap.ui.define(
     return Controller.extend("assignment1.controller.View", {
       onInit: function () {
         this.getView().setModel(Messaging.getMessageModel(), "message");
-
-        // or just do it for the whole view
-        // Messaging.registerObject(this.getView(), true);
-
-        // create a default model with somde demo data
-
-        // oModel = new JSONModel({
-        //   MandatoryInputValue: "",
-        //   DateValue: null,
-        //   IntegerValue: undefined,
-        //   Dummy: "",
-        // });
-        // oModel.setDefaultBindingMode(BindingMode.TwoWay);
-        // oView.setModel(oModel);
       },
       onMessagePopoverPress: function (oEvent) {
         let oSourceControl = oEvent.getSource();
@@ -65,7 +51,6 @@ sap.ui.define(
         }
         return this._pMessagePopover;
       },
-
       // ------------------------ValueVendorHelp----------------------------------------//
       onValueVendorHelpRequest: function (oEvent) {
         let sInputValueVendor = oEvent.getSource().getValue();
@@ -253,9 +238,15 @@ sap.ui.define(
         let sPurchaseGr = this.getView().byId("EKGRP001").getValue();
         let sPlant = this.getView().byId("WERKS001").getValue();
         let sVendor = this.getView().byId("LIFNR001").getValue();
-        let sSchedulePerson = this.getView().byId("ZNITTEITANTOSHA001").getValue();
-        let sDeliveryDateManageGr = this.getView().byId("ZNOKIGRP001").getValue();
-        let oDeliveryDLPerson = this.getView().byId("ZNOKITANTOSHA001").getValue();
+        let sSchedulePerson = this.getView()
+          .byId("ZNITTEITANTOSHA001")
+          .getValue();
+        let sDeliveryDateManageGr = this.getView()
+          .byId("ZNOKIGRP001")
+          .getValue();
+        let oDeliveryDLPerson = this.getView()
+          .byId("ZNOKITANTOSHA001")
+          .getValue();
 
         let aFilters = [];
         let filter1 = new Filter(
@@ -337,7 +328,7 @@ sap.ui.define(
       //-------------------on Add Row Table-------------//
       onAddRowTable: function () {
         const newData = {
-          ID: 1,
+          ID: 12,
           PurchaseGroup: "",
           Plant: "",
           Vendor: {
@@ -367,52 +358,18 @@ sap.ui.define(
       onDeleteRowTable: function () {
         let oTable = this.byId("idTables");
         let aSelectedIndices = oTable.getSelectedIndices();
-        let oModel = oTable.getBinding().getModel("data");
-        if (aSelectedIndices.length === 0) {
-          return;
-        }
-        for (let i = 0; i < aSelectedIndices.length; i++) {
-          let oContext = oTable.getContextByIndex(aSelectedIndices[i]);
-          let oData = oContext.getProperty("/Collection");
-
-          if (oData) {
-            this._aClipboardData.push(oContext.getProperty());
-            oModel.setProperty(oContext.getPath(), undefined, oContext, true);
-          }
-        }
-        if (this._aClipboardData.length > 0) {
-          this.byId("paste").setEnabled(true);
-        }
       },
       //--------------------Regist-------------------------//
       onRegisted: function (oEvent) {
-        // let oMessage = new Message({
-        //   message: "生成されたエラーメッセージが含まれます",
-        //   description: "Chứa thông báo lỗi được tạo",
-        //   type: MessageType.Error,
-        //   target: "/",
-        //   processor: this.getView().getModel(),
-        // });
-        // // let & const
-        // let oTable = this.getView().byId("idTables");
-        // let selectedData = [];
-        // let aIndices = oTable.getSelectedIndices();
-        // // let oSelectedItems = this.getView().getModel("data");
-        // console.log("rows selected", aIndices);
-        // if (aIndices.length < 1) {
-        //   MessageBox.error(
-        //     "登録に失敗しました、エラーを確認してください。\n Đăng ký thất bại, vui lòng xác nhận error"
-        //   );
-        //   Messaging.addMessages(oMessage);
-        //   return;
-        // } else {
-        //   for (let i = 0; i < aIndices.length; i++) {
-        //     let tableContext = oTable.getContextByIndex(aIndices[i]);
-        //     console.log(tableContext);
-        //     let data = oTable.getModel().getProperty(tableContext.getPath());
-        //     selectedData.push(data);
-        //   }
-        // }
+        let oTable = this.byId("idTables");
+        let iIndex = oTable.getSelectedIndex();
+        let sMsg;
+        if (iIndex < 0) {
+          sMsg = "no item selected";
+        } else {
+          sMsg = oTable.getContextByIndex(iIndex);
+        }
+        alert(iIndex);
       },
     });
   }
