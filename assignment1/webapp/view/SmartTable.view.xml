@@ -179,7 +179,6 @@
                 id="idTables"
                 rows="{path : 'data>/Collection'}"
                 selectionMode="MultiToggle"
-                visibleRowCount="{= ${/}.length}"
                 selectionBehavior="Row"
             >
                 <!-- rowMode="Auto" -->

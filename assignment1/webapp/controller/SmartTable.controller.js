@@ -4,9 +4,7 @@ sap.ui.define(
     "sap/ui/core/Fragment",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    "sap/ui/model/json/JSONModel",
     "sap/m/MessageBox",
-    "sap/ui/model/BindingMode",
     "sap/ui/core/Messaging",
     "sap/ui/core/message/Message",
     "sap/ui/core/library",
@@ -19,26 +17,22 @@ sap.ui.define(
     Fragment,
     Filter,
     FilterOperator,
-    JSONModel,
     MessageBox,
-    BindingMode,
     Messaging,
     Message,
     library
   ) {
     "use strict";
 
-    // shortcut for sap.ui.core.MessageType
     let MessageType = library.MessageType;
 
     return Controller.extend("assignment1.controller.View", {
       onInit: function () {
-        // this.onReadteData();
         this.getView().setModel(Messaging.getMessageModel(), "message");
 
         // or just do it for the whole view
         // Messaging.registerObject(this.getView(), true);
-        
+
         // create a default model with somde demo data
 
         // oModel = new JSONModel({
@@ -59,11 +53,10 @@ sap.ui.define(
       //################ Private APIs ###################
       _getMessagePopover: function () {
         let oView = this.getView();
-
         // create popover lazily (singleton)
         if (!this._pMessagePopover) {
           this._pMessagePopover = Fragment.load({
-            id: oView.getId(),
+            id: oView.byId(),
             name: "assignment1.fragment.MessagePopover",
           }).then(function (oMessagePopover) {
             oView.addDependent(oMessagePopover);
@@ -72,26 +65,6 @@ sap.ui.define(
         }
         return this._pMessagePopover;
       },
-      // onReadteData: function () {
-      //   let oDataModel = this.getOwnerComponent().getModel();
-      //   let oJSONModel = new JSONModel();
-      //   let oBusyDialog = new sap.m.BusyDialog({
-      //     text: "Please wait...",
-      //     customIcon: "loading.png",
-      //   });
-      //   oBusyDialog.open();
-      //   oDataModel.read("/Employees", {
-      //     success: function (oresponse) {
-      //       oJSONModel.setProperty("/Employees", oresponse.results);
-      //       console.log(oresponse);
-      //       this.getView().setModel(oJSONModel, "oPOJSONModel");
-      //       oBusyDialog.close();
-      //     }.bind(this),
-      //     error: function (oError) {
-      //       oBusyDialog.close();
-      //     }.bind(this),
-      //   });
-      // },
 
       // ------------------------ValueVendorHelp----------------------------------------//
       onValueVendorHelpRequest: function (oEvent) {
@@ -109,7 +82,6 @@ sap.ui.define(
           });
         }
         this._pValueHelpDialogVendor.then(function (oDialogVendor) {
-          // Create a filter for the binding
           oDialogVendor
             .getBinding("items")
             .filter([
@@ -119,7 +91,6 @@ sap.ui.define(
                 sInputValueVendor
               ),
             ]);
-          // Open ValueHelpDialog filtered by the input's value
           oDialogVendor.open(sInputValueVendor);
         });
       },
@@ -130,25 +101,21 @@ sap.ui.define(
           FilterOperator.Contains,
           sValueVendor
         );
-
         oEvent.getSource().getBinding("items").filter([oFilterVendor]);
       },
 
       onValueVendorHelpClose: function (oEvent) {
         let oSelectedItemVendor = oEvent.getParameter("selectedItem");
         oEvent.getSource().getBinding("items").filter([]);
-
         if (!oSelectedItemVendor) {
           return;
         }
         this.byId("LIFNR001").setValue(oSelectedItemVendor.getTitle());
       },
-
       // ------------------------PersonInChargeOfSchedule----------------------------------------//
       onPersonInChargeOfSchedule: function (oEvent) {
         let sInputValueSchedule = oEvent.getSource().getValue(),
           oView = this.getView();
-
         if (!this._pValueHelpDialogSchedule) {
           this._pValueHelpDialogSchedule = Fragment.load({
             id: oView.byId("selectDialog2"),
@@ -160,7 +127,6 @@ sap.ui.define(
           });
         }
         this._pValueHelpDialogSchedule.then(function (_oDialogSchedule) {
-          // Create a filter for the binding
           _oDialogSchedule
             .getBinding("items")
             .filter([
@@ -170,7 +136,6 @@ sap.ui.define(
                 sInputValueSchedule
               ),
             ]);
-          // Open ValueHelpDialog filtered by the input's value
           _oDialogSchedule.open(sInputValueSchedule);
         });
       },
@@ -181,10 +146,8 @@ sap.ui.define(
           FilterOperator.Contains,
           sValue
         );
-
         oEvent.getSource().getBinding("items").filter([oFilter]);
       },
-
       onPersonInChargeOfScheduleHelpClose: function (oEvent) {
         let oSelectedItem = oEvent.getParameter("selectedItem");
         oEvent.getSource().getBinding("items").filter([]);
@@ -193,7 +156,6 @@ sap.ui.define(
         }
         this.byId("ZNITTEITANTOSHA001").setValue(oSelectedItem.getTitle());
       },
-
       // ------------------------GroupMnDeliveryDL----------------------------------------//
       onGroupMnDeliveryDLDialog: function (oEvent) {
         let sInputValueGroupMn = oEvent.getSource().getValue(),
@@ -210,7 +172,6 @@ sap.ui.define(
           });
         }
         this._pValueHelpDialogGroupMn.then(function (oDialogGroupMn) {
-          // Create a filter for the binding
           oDialogGroupMn
             .getBinding("items")
             .filter([
@@ -220,7 +181,6 @@ sap.ui.define(
                 sInputValueGroupMn
               ),
             ]);
-          // Open ValueHelpDialog filtered by the input's value
           oDialogGroupMn.open(sInputValueGroupMn);
         });
       },
@@ -231,10 +191,8 @@ sap.ui.define(
           FilterOperator.Contains,
           sValue
         );
-
         oEvent.getSource().getBinding("items").filter([oFilter]);
       },
-
       onGroupMnDeliveryDLHelpClose: function (oEvent) {
         let oSelectedItemGroupMn = oEvent.getParameter("selectedItem");
         oEvent.getSource().getBinding("items").filter([]);
@@ -251,7 +209,7 @@ sap.ui.define(
 
         if (!this._pValueHelpDialog) {
           this._pValueHelpDialog = Fragment.load({
-            id: oView.getId("selectDialog4"),
+            id: oView.byId("selectDialog4"),
             name: "assignment1.fragment.PersonInChargeOfDeliveryDL",
             controller: this,
           }).then(function (oDialog) {
@@ -260,7 +218,6 @@ sap.ui.define(
           });
         }
         this._pValueHelpDialog.then(function (oDialog) {
-          // Create a filter for the binding
           oDialog
             .getBinding("items")
             .filter([
@@ -270,7 +227,6 @@ sap.ui.define(
                 sInputValue
               ),
             ]);
-          // Open ValueHelpDialog filtered by the input's value
           oDialog.open(sInputValue);
         });
       },
@@ -281,7 +237,6 @@ sap.ui.define(
           FilterOperator.Contains,
           sValue
         );
-
         oEvent.getSource().getBinding("items").filter([oFilter]);
       },
 
@@ -294,17 +249,15 @@ sap.ui.define(
         this.byId("ZNOKITANTOSHA001").setValue(oSelectedItem.getTitle());
       },
       //-------------------on Press Search Filter-------------//
-      onPressSearchFilter: function (oEvent) {
+      onPressSearchFilter: function () {
         let sPurchaseGr = this.getView().byId("EKGRP001").getValue();
         let sPlant = this.getView().byId("WERKS001").getValue();
         let sVendor = this.getView().byId("LIFNR001").getValue();
         let sSchedulePerson = this.getView().byId("ZNITTEITANTOSHA001").getValue();
         let sDeliveryDateManageGr = this.getView().byId("ZNOKIGRP001").getValue();
-        let oIn6 = this.getView().byId("ZNOKITANTOSHA001").getValue();
-        // console.log(oIn1, oIn2, oIn3, oIn4, oIn5, oIn6);
+        let oDeliveryDLPerson = this.getView().byId("ZNOKITANTOSHA001").getValue();
 
         let aFilters = [];
-
         let filter1 = new Filter(
           "PurchaseGroup",
           FilterOperator.Contains,
@@ -315,24 +268,33 @@ sap.ui.define(
         let filter2 = new Filter("Plant", FilterOperator.Contains, sPlant);
         aFilters.push(filter2);
 
-        let filter3 = new Filter("Vendor/code", FilterOperator.Contains, sVendor);
+        let filter3 = new Filter(
+          "Vendor/code",
+          FilterOperator.Contains,
+          sVendor
+        );
         aFilters.push(filter3);
 
-        // let filter4 = new Filter(
-        //   "PersonInChargeOfSchedule/code",
-        //   FilterOperator.Contains,
-        //   sSchedulePerson
-        // );
-        // let filter5 = new Filter(
-        //   "GroupMnDeliveryDL/code",
-        //   FilterOperator.Contains,
-        //   sDeliveryDateManageGr
-        // );
-        // let filter6 = new Filter(
-        //   "PersonInChargeOfDeliveryDL/code",
-        //   FilterOperator.Contains,
-        //   oIn6
-        // );
+        let filter4 = new Filter(
+          "PersonInChargeOfSchedule/code",
+          FilterOperator.Contains,
+          sSchedulePerson
+        );
+        aFilters.push(filter4);
+
+        let filter5 = new Filter(
+          "GroupMnDeliveryDL/code",
+          FilterOperator.Contains,
+          sDeliveryDateManageGr
+        );
+        aFilters.push(filter5);
+
+        let filter6 = new Filter(
+          "PersonInChargeOfDeliveryDL/code",
+          FilterOperator.Contains,
+          oDeliveryDLPerson
+        );
+        aFilters.push(filter6);
 
         let oTableBinding = this.getView().byId("idTables").getBinding("rows");
 
@@ -349,39 +311,21 @@ sap.ui.define(
         if (
           !sPurchaseGr &&
           !sPlant &&
-          sVendor === "" &&
-          sSchedulePerson === "" &&
-          sDeliveryDateManageGr === "" &&
-          oIn6 === ""
+          !sVendor &&
+          !sSchedulePerson &&
+          !sDeliveryDateManageGr &&
+          !oDeliveryDLPerson
         ) {
           Messaging.addMessages(oMessage);
           MessageBox.error(
             "購買グループ、プラント、仕入先のいずれかを指定して検索してください。\n Vui lòng chỉ định một trong các item purchase group (購買グループ)、plant (プラント)、vendor (仕入先) và tìm kiếm"
           );
         } else {
-          // if (sPurchaseGr) {
-          //   oTableBinding.filter([filter1]);
-          // }
-          // if (sPlant) {
-          //   oTableBinding.filter([filter2]);
-          // }
-          // if (sVendor) {
-          //   oTableBinding.filter([filter3]);
-          // }
           oTableBinding.filter(aFilters);
-          // if (oIn4) {
-          //   oTableBinding.filter([filter4]);
-          // }
-          // if (oIn5) {
-          //   oTableBinding.filter([filter5]);
-          // }
-          // if (oIn6) {
-          //   oTableBinding.filter([filter6]);
-          // }
         }
       },
       //-------------------on Clear Search Filter-------------//
-      onClearSearchFilter: function (oEvent) {
+      onClearSearchFilter: function () {
         this.getView().byId("EKGRP001").setValue("");
         this.getView().byId("WERKS001").setValue("");
         this.getView().byId("LIFNR001").setValue("");
@@ -391,7 +335,7 @@ sap.ui.define(
         this.getView().byId("idTables").getBinding("rows").filter([]);
       },
       //-------------------on Add Row Table-------------//
-      onAddRowTable: function (oEvent) {
+      onAddRowTable: function () {
         const newData = {
           ID: 1,
           PurchaseGroup: "",
@@ -420,27 +364,22 @@ sap.ui.define(
         this.byId("idTables").getBinding("rows").refresh();
       },
       //-------------------on Delete Row Table-------------//
-      onDeleteRowTable: function (oEvent) {
+      onDeleteRowTable: function () {
         let oTable = this.byId("idTables");
         let aSelectedIndices = oTable.getSelectedIndices();
         let oModel = oTable.getBinding().getModel("data");
         if (aSelectedIndices.length === 0) {
           return;
         }
-
-        // Cut the data.
         for (let i = 0; i < aSelectedIndices.length; i++) {
           let oContext = oTable.getContextByIndex(aSelectedIndices[i]);
           let oData = oContext.getProperty("/Collection");
 
           if (oData) {
             this._aClipboardData.push(oContext.getProperty());
-
-            // The property is simply set to undefined to preserve the tree state (expand/collapse states of nodes).
             oModel.setProperty(oContext.getPath(), undefined, oContext, true);
           }
         }
-
         if (this._aClipboardData.length > 0) {
           this.byId("paste").setEnabled(true);
         }
