@@ -5,19 +5,19 @@
             "PurchaseGroup": "SA",
             "Plant": "L",
             "Vendor": {
-                "id": "A100",
+                "code": "A100",
                 "name": "Maintown"
             },
             "PersonInChargeOfSchedule": {
-                "id": "97013",
+                "code": "97013",
                 "name": "加藤 顕"
             },
             "GroupMnDeliveryDL": {
-                "id": "LL",
+                "code": "LL",
                 "name": "調達部工作"
             },
             "PersonInChargeOfDeliveryDL": {
-                "id": "64910",
+                "code": "64910",
                 "name": "加藤 顕"
             }
         },
@@ -26,19 +26,19 @@
             "PurchaseGroup": "BL",
             "Plant": "O",
             "Vendor": {
-                "id": "B100",
+                "code": "B100",
                 "name": "Paolma"
             },
             "PersonInChargeOfSchedule": {
-                "id": "85001",
+                "code": "85001",
                 "name": "サービス"
             },
             "GroupMnDeliveryDL": {
-                "id": "AA",
+                "code": "AA",
                 "name": "無料"
             },
             "PersonInChargeOfDeliveryDL": {
-                "id": "15502",
+                "code": "15502",
                 "name": "提供する"
             }
         },
@@ -47,19 +47,19 @@
             "PurchaseGroup": "QW",
             "Plant": "P",
             "Vendor": {
-                "id": "C100",
+                "code": "C100",
                 "name": "Ualss"
             },
             "PersonInChargeOfSchedule": {
-                "id": "74040",
+                "code": "74040",
                 "name": "納期"
             },
             "GroupMnDeliveryDL": {
-                "id": "CC",
+                "code": "CC",
                 "name": "担当"
             },
             "PersonInChargeOfDeliveryDL": {
-                "id": "27107",
+                "code": "27107",
                 "name": "画面"
             }
         },
@@ -68,19 +68,19 @@
             "PurchaseGroup": "MN",
             "Plant": "D",
             "Vendor": {
-                "id": "D100",
+                "code": "D100",
                 "name": "Oqls"
             },
             "PersonInChargeOfSchedule": {
-                "id": "42011",
+                "code": "42011",
                 "name": "納期"
             },
             "GroupMnDeliveryDL": {
-                "id": "SL",
+                "code": "SL",
                 "name": "詳細"
             },
             "PersonInChargeOfDeliveryDL": {
-                "id": "74110",
+                "code": "74110",
                 "name": "画面"
             }
         },
@@ -89,19 +89,19 @@
             "PurchaseGroup": "PL",
             "Plant": "W",
             "Vendor": {
-                "id": "E100",
+                "code": "E100",
                 "name": "Lang"
             },
             "PersonInChargeOfSchedule": {
-                "id": "95220",
+                "code": "95220",
                 "name": "毎日発見"
             },
             "GroupMnDeliveryDL": {
-                "id": "MC",
+                "code": "MC",
                 "name": "詳細"
             },
             "PersonInChargeOfDeliveryDL": {
-                "id": "42251",
+                "code": "42251",
                 "name": "画面"
             }
         },
@@ -110,19 +110,19 @@
             "PurchaseGroup": "PL",
             "Plant": "W",
             "Vendor": {
-                "id": "F100",
+                "code": "F100",
                 "name": "Lang"
             },
             "PersonInChargeOfSchedule": {
-                "id": "95220",
+                "code": "95220",
                 "name": "接続"
             },
             "GroupMnDeliveryDL": {
-                "id": "NB",
+                "code": "NB",
                 "name": "注文書"
             },
             "PersonInChargeOfDeliveryDL": {
-                "id": "42251",
+                "code": "42251",
                 "name": "日本"
             }
         },
@@ -131,19 +131,19 @@
             "PurchaseGroup": "PQ",
             "Plant": "W",
             "Vendor": {
-                "id": "G100",
+                "code": "G100",
                 "name": "Plam"
             },
             "PersonInChargeOfSchedule": {
-                "id": "25101",
+                "code": "25101",
                 "name": "納期"
             },
             "GroupMnDeliveryDL": {
-                "id": "CV",
+                "code": "CV",
                 "name": "ペットの世話"
             },
             "PersonInChargeOfDeliveryDL": {
-                "id": "74100",
+                "code": "74100",
                 "name": "健康"
             }
         },
@@ -152,19 +152,19 @@
             "PurchaseGroup": "QA",
             "Plant": "S",
             "Vendor": {
-                "id": "G101",
+                "code": "G101",
                 "name": "Gara"
             },
             "PersonInChargeOfSchedule": {
-                "id": "25101",
+                "code": "25101",
                 "name": "納期"
             },
             "GroupMnDeliveryDL": {
-                "id": "CV",
+                "code": "CV",
                 "name": "担当"
             },
             "PersonInChargeOfDeliveryDL": {
-                "id": "42470",
+                "code": "42470",
                 "name": "オンライン食料品店"
             }
         },
@@ -173,19 +173,19 @@
             "PurchaseGroup": "QA",
             "Plant": "S",
             "Vendor": {
-                "id": "G101",
+                "code": "G101",
                 "name": "Event"
             },
             "PersonInChargeOfSchedule": {
-                "id": "10124",
+                "code": "10124",
                 "name": "納期"
             },
             "GroupMnDeliveryDL": {
-                "id": "XZ",
+                "code": "XZ",
                 "name": "担当"
             },
             "PersonInChargeOfDeliveryDL": {
-                "id": "74100",
+                "code": "74100",
                 "name": "画面"
             }
         },
@@ -194,19 +194,19 @@
             "PurchaseGroup": "CV",
             "Plant": "Z",
             "Vendor": {
-                "id": "H101",
+                "code": "H101",
                 "name": "Omquen"
             },
             "PersonInChargeOfSchedule": {
-                "id": "34210",
+                "code": "34210",
                 "name": "納期"
             },
             "GroupMnDeliveryDL": {
-                "id": "ZL",
+                "code": "ZL",
                 "name": "担当"
             },
             "PersonInChargeOfDeliveryDL": {
-                "id": "42100",
+                "code": "42100",
                 "name": "製品名"
             }
         },
@@ -215,19 +215,19 @@
             "PurchaseGroup": "PM",
             "Plant": "Y",
             "Vendor": {
-                "id": "P101",
+                "code": "P101",
                 "name": "Namu"
             },
             "PersonInChargeOfSchedule": {
-                "id": "54321",
+                "code": "54321",
                 "name": "家と暮らし"
             },
             "GroupMnDeliveryDL": {
-                "id": "ZL",
+                "code": "ZL",
                 "name": "オンライン書店"
             },
             "PersonInChargeOfDeliveryDL": {
-                "id": "45244",
+                "code": "45244",
                 "name": "車、バイク、自転車"
             }
         }
