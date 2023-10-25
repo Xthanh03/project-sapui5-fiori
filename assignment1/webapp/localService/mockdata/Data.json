@@ -1,0 +1,235 @@
+{
+    "Collection": [
+        {
+            "ID": 1,
+            "PurchaseGroup": "SA",
+            "Plant": "L",
+            "Vendor": {
+                "id": "A100",
+                "name": "Maintown"
+            },
+            "PersonInChargeOfSchedule": {
+                "id": "97013",
+                "name": "加藤 顕"
+            },
+            "GroupMnDeliveryDL": {
+                "id": "LL",
+                "name": "調達部工作"
+            },
+            "PersonInChargeOfDeliveryDL": {
+                "id": "64910",
+                "name": "加藤 顕"
+            }
+        },
+        {
+            "ID": 2,
+            "PurchaseGroup": "BL",
+            "Plant": "O",
+            "Vendor": {
+                "id": "B100",
+                "name": "Paolma"
+            },
+            "PersonInChargeOfSchedule": {
+                "id": "85001",
+                "name": "サービス"
+            },
+            "GroupMnDeliveryDL": {
+                "id": "AA",
+                "name": "無料"
+            },
+            "PersonInChargeOfDeliveryDL": {
+                "id": "15502",
+                "name": "提供する"
+            }
+        },
+        {
+            "ID": 3,
+            "PurchaseGroup": "QW",
+            "Plant": "P",
+            "Vendor": {
+                "id": "C100",
+                "name": "Ualss"
+            },
+            "PersonInChargeOfSchedule": {
+                "id": "74040",
+                "name": "納期"
+            },
+            "GroupMnDeliveryDL": {
+                "id": "CC",
+                "name": "担当"
+            },
+            "PersonInChargeOfDeliveryDL": {
+                "id": "27107",
+                "name": "画面"
+            }
+        },
+        {
+            "ID": 4,
+            "PurchaseGroup": "MN",
+            "Plant": "D",
+            "Vendor": {
+                "id": "D100",
+                "name": "Oqls"
+            },
+            "PersonInChargeOfSchedule": {
+                "id": "42011",
+                "name": "納期"
+            },
+            "GroupMnDeliveryDL": {
+                "id": "SL",
+                "name": "詳細"
+            },
+            "PersonInChargeOfDeliveryDL": {
+                "id": "74110",
+                "name": "画面"
+            }
+        },
+        {
+            "ID": 5,
+            "PurchaseGroup": "PL",
+            "Plant": "W",
+            "Vendor": {
+                "id": "E100",
+                "name": "Lang"
+            },
+            "PersonInChargeOfSchedule": {
+                "id": "95220",
+                "name": "毎日発見"
+            },
+            "GroupMnDeliveryDL": {
+                "id": "MC",
+                "name": "詳細"
+            },
+            "PersonInChargeOfDeliveryDL": {
+                "id": "42251",
+                "name": "画面"
+            }
+        },
+        {
+            "ID": 6,
+            "PurchaseGroup": "PL",
+            "Plant": "W",
+            "Vendor": {
+                "id": "F100",
+                "name": "Lang"
+            },
+            "PersonInChargeOfSchedule": {
+                "id": "95220",
+                "name": "接続"
+            },
+            "GroupMnDeliveryDL": {
+                "id": "NB",
+                "name": "注文書"
+            },
+            "PersonInChargeOfDeliveryDL": {
+                "id": "42251",
+                "name": "日本"
+            }
+        },
+        {
+            "ID": 7,
+            "PurchaseGroup": "PQ",
+            "Plant": "W",
+            "Vendor": {
+                "id": "G100",
+                "name": "Plam"
+            },
+            "PersonInChargeOfSchedule": {
+                "id": "25101",
+                "name": "納期"
+            },
+            "GroupMnDeliveryDL": {
+                "id": "CV",
+                "name": "ペットの世話"
+            },
+            "PersonInChargeOfDeliveryDL": {
+                "id": "74100",
+                "name": "健康"
+            }
+        },
+        {
+            "ID": 8,
+            "PurchaseGroup": "QA",
+            "Plant": "S",
+            "Vendor": {
+                "id": "G101",
+                "name": "Gara"
+            },
+            "PersonInChargeOfSchedule": {
+                "id": "25101",
+                "name": "納期"
+            },
+            "GroupMnDeliveryDL": {
+                "id": "CV",
+                "name": "担当"
+            },
+            "PersonInChargeOfDeliveryDL": {
+                "id": "42470",
+                "name": "オンライン食料品店"
+            }
+        },
+        {
+            "ID": 9,
+            "PurchaseGroup": "QA",
+            "Plant": "S",
+            "Vendor": {
+                "id": "G101",
+                "name": "Event"
+            },
+            "PersonInChargeOfSchedule": {
+                "id": "10124",
+                "name": "納期"
+            },
+            "GroupMnDeliveryDL": {
+                "id": "XZ",
+                "name": "担当"
+            },
+            "PersonInChargeOfDeliveryDL": {
+                "id": "74100",
+                "name": "画面"
+            }
+        },
+        {
+            "ID": 10,
+            "PurchaseGroup": "CV",
+            "Plant": "Z",
+            "Vendor": {
+                "id": "H101",
+                "name": "Omquen"
+            },
+            "PersonInChargeOfSchedule": {
+                "id": "34210",
+                "name": "納期"
+            },
+            "GroupMnDeliveryDL": {
+                "id": "ZL",
+                "name": "担当"
+            },
+            "PersonInChargeOfDeliveryDL": {
+                "id": "42100",
+                "name": "製品名"
+            }
+        },
+        {
+            "ID": 11,
+            "PurchaseGroup": "PM",
+            "Plant": "Y",
+            "Vendor": {
+                "id": "P101",
+                "name": "Namu"
+            },
+            "PersonInChargeOfSchedule": {
+                "id": "54321",
+                "name": "家と暮らし"
+            },
+            "GroupMnDeliveryDL": {
+                "id": "ZL",
+                "name": "オンライン書店"
+            },
+            "PersonInChargeOfDeliveryDL": {
+                "id": "45244",
+                "name": "車、バイク、自転車"
+            }
+        }
+    ]
+}

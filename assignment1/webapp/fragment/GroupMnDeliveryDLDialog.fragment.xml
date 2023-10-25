@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <SelectDialog
+        id="selectDialog3"
+        title="納期管理グループ Group quản lý thời hạn giao hàng"
+        searchPlaceholder="search"
+        items="{data>/Collection}"
+        search=".onGroupMnDeliveryDLHelpSearch"
+        confirm=".onGroupMnDeliveryDLHelpClose"
+        cancel=".onGroupMnDeliveryDLHelpClose"
+    >
+        <StandardListItem
+            iconDensityAware="false"
+            iconInset="false"
+            title="{data>GroupMnDeliveryDL/code}"
+            description="{data>GroupMnDeliveryDL/name}"
+        />
+    </SelectDialog>
+</core:FragmentDefinition>

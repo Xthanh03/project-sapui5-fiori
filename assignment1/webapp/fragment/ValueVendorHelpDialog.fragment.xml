@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectDialog1"
+		title="仕入先 Vendor"
+		searchPlaceholder="search"
+		items="{data>/Collection}"
+		search=".onValueVendorHelpSearch"
+		confirm=".onValueVendorHelpClose"
+		cancel=".onValueVendorHelpClose">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"
+			title="{data>Vendor/code}"
+			description="{data>Vendor/name}"
+		 />
+	</SelectDialog>
+</core:FragmentDefinition>
