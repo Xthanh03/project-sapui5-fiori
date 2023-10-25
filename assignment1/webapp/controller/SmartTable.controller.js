@@ -34,12 +34,11 @@ sap.ui.define(
     return Controller.extend("assignment1.controller.View", {
       onInit: function () {
         // this.onReadteData();
-        let oModel, oView;
-        oView = this.getView();
-        // set message model
-        oView.setModel(Messaging.getMessageModel(), "message");
+        this.getView().setModel(Messaging.getMessageModel(), "message");
+
         // or just do it for the whole view
-        Messaging.registerObject(oView, true);
+        // Messaging.registerObject(this.getView(), true);
+        
         // create a default model with somde demo data
 
         // oModel = new JSONModel({
@@ -96,12 +95,12 @@ sap.ui.define(
 
       // ------------------------ValueVendorHelp----------------------------------------//
       onValueVendorHelpRequest: function (oEvent) {
-        let sInputValueVendor = oEvent.getSource().getValue(),
-          oViewVendor = this.getView();
+        let sInputValueVendor = oEvent.getSource().getValue();
+        let oViewVendor = this.getView();
 
         if (!this._pValueHelpDialogVendor) {
           this._pValueHelpDialogVendor = Fragment.load({
-            id: oViewVendor.getId("selectDialog1"),
+            id: oViewVendor.byId("selectDialog1"),
             name: "assignment1.fragment.ValueVendorHelpDialog",
             controller: this,
           }).then(function (oDialogVendor) {
@@ -152,7 +151,7 @@ sap.ui.define(
 
         if (!this._pValueHelpDialogSchedule) {
           this._pValueHelpDialogSchedule = Fragment.load({
-            id: oView.getId("selectDialog2"),
+            id: oView.byId("selectDialog2"),
             name: "assignment1.fragment.PersonInChargeOfSchedule",
             controller: this,
           }).then(function (_oDialogSchedule) {
@@ -202,7 +201,7 @@ sap.ui.define(
 
         if (!this._pValueHelpDialogGroupMn) {
           this._pValueHelpDialogGroupMn = Fragment.load({
-            id: oViewGroupMn.getId("selectDialog3"),
+            id: oViewGroupMn.byId("selectDialog3"),
             name: "assignment1.fragment.GroupMnDeliveryDLDialog",
             controller: this,
           }).then(function (oDialogGroupMn) {
@@ -296,38 +295,46 @@ sap.ui.define(
       },
       //-------------------on Press Search Filter-------------//
       onPressSearchFilter: function (oEvent) {
-        let oIn1 = this.getView().byId("EKGRP001").getValue();
-        let oIn2 = this.getView().byId("WERKS001").getValue();
-        let oIn3 = this.getView().byId("LIFNR001").getValue();
-        let oIn4 = this.getView().byId("ZNITTEITANTOSHA001").getValue();
-        let oIn5 = this.getView().byId("ZNOKIGRP001").getValue();
+        let sPurchaseGr = this.getView().byId("EKGRP001").getValue();
+        let sPlant = this.getView().byId("WERKS001").getValue();
+        let sVendor = this.getView().byId("LIFNR001").getValue();
+        let sSchedulePerson = this.getView().byId("ZNITTEITANTOSHA001").getValue();
+        let sDeliveryDateManageGr = this.getView().byId("ZNOKIGRP001").getValue();
         let oIn6 = this.getView().byId("ZNOKITANTOSHA001").getValue();
         // console.log(oIn1, oIn2, oIn3, oIn4, oIn5, oIn6);
+
+        let aFilters = [];
 
         let filter1 = new Filter(
           "PurchaseGroup",
           FilterOperator.Contains,
-          oIn1
+          sPurchaseGr
         );
-        let filter2 = new Filter("Plant", FilterOperator.Contains, oIn2);
-        let filter3 = new Filter("Vendor/code", FilterOperator.Contains, oIn3);
-        let filter4 = new Filter(
-          "PersonInChargeOfSchedule/code",
-          FilterOperator.Contains,
-          oIn4
-        );
-        let filter5 = new Filter(
-          "GroupMnDeliveryDL/code",
-          FilterOperator.Contains,
-          oIn5
-        );
-        let filter6 = new Filter(
-          "PersonInChargeOfDeliveryDL/code",
-          FilterOperator.Contains,
-          oIn6
-        );
-        let oTable = this.getView().byId("idTables");
-        let binding = oTable.getBinding("rows");
+        aFilters.push(filter1);
+
+        let filter2 = new Filter("Plant", FilterOperator.Contains, sPlant);
+        aFilters.push(filter2);
+
+        let filter3 = new Filter("Vendor/code", FilterOperator.Contains, sVendor);
+        aFilters.push(filter3);
+
+        // let filter4 = new Filter(
+        //   "PersonInChargeOfSchedule/code",
+        //   FilterOperator.Contains,
+        //   sSchedulePerson
+        // );
+        // let filter5 = new Filter(
+        //   "GroupMnDeliveryDL/code",
+        //   FilterOperator.Contains,
+        //   sDeliveryDateManageGr
+        // );
+        // let filter6 = new Filter(
+        //   "PersonInChargeOfDeliveryDL/code",
+        //   FilterOperator.Contains,
+        //   oIn6
+        // );
+
+        let oTableBinding = this.getView().byId("idTables").getBinding("rows");
 
         let oMessage = new Message({
           message:
@@ -340,11 +347,11 @@ sap.ui.define(
         });
 
         if (
-          oIn1 === "" &&
-          oIn2 === "" &&
-          oIn3 === "" &&
-          oIn4 === "" &&
-          oIn5 === "" &&
+          !sPurchaseGr &&
+          !sPlant &&
+          sVendor === "" &&
+          sSchedulePerson === "" &&
+          sDeliveryDateManageGr === "" &&
           oIn6 === ""
         ) {
           Messaging.addMessages(oMessage);
@@ -352,44 +359,36 @@ sap.ui.define(
             "購買グループ、プラント、仕入先のいずれかを指定して検索してください。\n Vui lòng chỉ định một trong các item purchase group (購買グループ)、plant (プラント)、vendor (仕入先) và tìm kiếm"
           );
         } else {
-          if (oIn1) {
-            binding.filter([filter1]);
-          }
-          if (oIn2) {
-            binding.filter([filter2]);
-          }
-          if (oIn3) {
-            binding.filter([filter3]);
-          }
-          if (oIn4) {
-            binding.filter([filter4]);
-          }
-          if (oIn5) {
-            binding.filter([filter5]);
-          }
-          if (oIn6) {
-            binding.filter([filter6]);
-          }
+          // if (sPurchaseGr) {
+          //   oTableBinding.filter([filter1]);
+          // }
+          // if (sPlant) {
+          //   oTableBinding.filter([filter2]);
+          // }
+          // if (sVendor) {
+          //   oTableBinding.filter([filter3]);
+          // }
+          oTableBinding.filter(aFilters);
+          // if (oIn4) {
+          //   oTableBinding.filter([filter4]);
+          // }
+          // if (oIn5) {
+          //   oTableBinding.filter([filter5]);
+          // }
+          // if (oIn6) {
+          //   oTableBinding.filter([filter6]);
+          // }
         }
       },
       //-------------------on Clear Search Filter-------------//
       onClearSearchFilter: function (oEvent) {
-        let oIn1 = this.getView().byId("EKGRP001");
-        let oIn2 = this.getView().byId("WERKS001");
-        let oIn3 = this.getView().byId("LIFNR001");
-        let oIn4 = this.getView().byId("ZNITTEITANTOSHA001");
-        let oIn5 = this.getView().byId("ZNOKIGRP001");
-        let oIn6 = this.getView().byId("ZNOKITANTOSHA001");
-
-        oIn1.setValue("");
-        oIn2.setValue("");
-        oIn3.setValue("");
-        oIn4.setValue("");
-        oIn5.setValue("");
-        oIn6.setValue("");
-        let oTable = this.getView().byId("idTables");
-        let binding = oTable.getBinding("rows");
-        binding.filter();
+        this.getView().byId("EKGRP001").setValue("");
+        this.getView().byId("WERKS001").setValue("");
+        this.getView().byId("LIFNR001").setValue("");
+        this.getView().byId("ZNITTEITANTOSHA001").setValue("");
+        this.getView().byId("ZNOKIGRP001").setValue("");
+        this.getView().byId("ZNOKITANTOSHA001").setValue("");
+        this.getView().byId("idTables").getBinding("rows").filter([]);
       },
       //-------------------on Add Row Table-------------//
       onAddRowTable: function (oEvent) {
