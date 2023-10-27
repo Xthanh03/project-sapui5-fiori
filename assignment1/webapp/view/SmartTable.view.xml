@@ -1,5 +1,4 @@
 <mvc:View
-    xmlns:c="sap.ui.core"
     controllerName="assignment1.controller.SmartTable"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:u="sap.ui.unified"
